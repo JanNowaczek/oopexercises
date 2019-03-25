@@ -1,9 +1,14 @@
-// 1. Napisz funkcję która liczy średnią arytmetyczną przekazanych do niej liczb jako tablicy.
+// 2. Napisz funkcję która liczy medianę przekazanych do niej liczb jako tablicy.
 
-function calculate(array) {
-    return array.reduce( (a,b) => a + b) / array.length;
+const median = (array) => {
+    const sortedArray = array.concat().sort((a, b) => a - b)
+
+    const halfIndex = Math.floor((sortedArray.length - 1) / 2)
+
+    if (sortedArray.length % 2 === 0) { 
+        return (sortedArray[halfIndex] + sortedArray[halfIndex + 1]) / 2
+    } else { 
+        return sortedArray[halfIndex]
+    }
+
 }
-console.log(calculate([24, 88, 12, 4]));
-
-
-
